@@ -2,11 +2,6 @@ class Triangulo{
   private PVector puntoA;
   private PVector puntoB;
   private PVector puntoC;
-  private boolean esTriangulo;  
-  
-  public Triangulo(){
-    this.esTriangulo = false;
-  }
   
   public Triangulo(float _x1, float _y1, float _x2, float _y2, float _x3, float _y3){
     this.puntoA = new PVector();
