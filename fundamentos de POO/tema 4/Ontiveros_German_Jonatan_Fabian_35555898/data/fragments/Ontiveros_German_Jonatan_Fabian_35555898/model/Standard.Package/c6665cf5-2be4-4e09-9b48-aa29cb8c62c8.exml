@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DiagramaEjercicio4" version="4">
+  <OBJECT>
+    <ID name="DiagramaEjercicio4" mc="Standard.Package" uid="c6665cf5-2be4-4e09-9b48-aa29cb8c62c8"/>
+    <PID name="Ontiveros_German_Jonatan_Fabian_35555898" mc="Standard.Project" uid="497f3b4c-f2ee-4447-8183-f3dd3e99bf04"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[DiagramaEjercicio4]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Equipo" mc="Standard.Class" uid="ce13bfdf-ced0-4b7a-a3e4-7b03bdc573e9"/>
+        <COMPID name="Jugador" mc="Standard.Class" uid="3ce2f503-f710-4891-9b53-c1c10ddd4bda"/>
+        <COMPID name="Pelota" mc="Standard.Class" uid="ea5b28d0-1fb9-46bb-b2c1-816cf97a8748"/>
+        <COMPID name="Referi" mc="Standard.Class" uid="8d40f01d-c54e-40a0-b15f-dc56783af5b5"/>
+        <COMPID name="Cancha" mc="Standard.Class" uid="2af58e6b-9a18-4cfc-9ccd-220779a94dfc"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="DiagramaEjercicio4" mc="Standard.ClassDiagram" uid="771c63a8-cb63-4a00-9175-c6c0189e55b6"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

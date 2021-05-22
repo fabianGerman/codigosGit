@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="diagrama_3" version="4">
+  <OBJECT>
+    <ID name="diagrama_3" mc="Standard.Package" uid="7a46fc43-0aa2-4fc9-9eb9-a2ed98150040"/>
+    <PID name="diagramas" mc="Standard.Package" uid="9db6cbe2-80d7-4b89-8936-88b3a162516a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[diagrama_3]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Jugador" mc="Standard.Class" uid="3886a66e-118f-455c-ac18-cdbf06ac6ede"/>
+        <COMPID name="Triangulo" mc="Standard.Class" uid="f7c3f85e-da83-41db-a6f3-04395b569a71"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="diagrama_ejercicio3" mc="Standard.ClassDiagram" uid="7623c27e-0e4a-48d9-b010-51ca5cb0d600"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

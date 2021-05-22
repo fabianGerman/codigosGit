@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Pacman" version="4">
+  <OBJECT>
+    <ID name="Pacman" mc="Standard.Project" uid="ba4edd17-a0ed-465c-aa0c-047b54dd28bf"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[Pacman]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="pacman" mc="Standard.Package" uid="9856b06b-6f76-43da-818f-610bcae3ae45"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="Pacman" mc="Infrastructure.DiagramSet" uid="695ef092-3790-4b2e-a246-57cbb5a80202"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
