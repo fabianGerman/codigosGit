@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DiagramaEjercicio1" version="4">
+  <OBJECT>
+    <ID name="DiagramaEjercicio1" mc="Standard.Package" uid="1ca066cd-96de-425b-848c-1bcba136359a"/>
+    <PID name="Ontiveros_German_Jonatan_Fabian_35555898" mc="Standard.Project" uid="497f3b4c-f2ee-4447-8183-f3dd3e99bf04"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[DiagramaEjercicio1]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Personaje" mc="Standard.Class" uid="8e47ed71-b07c-4cf9-885c-14141ad7226a"/>
+        <COMPID name="Mapa" mc="Standard.Class" uid="9a929cdd-8abb-4820-83d8-722280319e7b"/>
+        <COMPID name="Foco" mc="Standard.Class" uid="95f9ae5e-5a2d-4bf1-8816-21cf6625e5a3"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="DiagramaEjercicio1" mc="Standard.ClassDiagram" uid="84df13a1-4443-4fdf-bf95-5dc9f0919940"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

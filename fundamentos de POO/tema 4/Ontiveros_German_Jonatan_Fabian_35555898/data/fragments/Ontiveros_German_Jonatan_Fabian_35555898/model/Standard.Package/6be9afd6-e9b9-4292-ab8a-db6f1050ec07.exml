@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DiagramaEjercicio2" version="4">
+  <OBJECT>
+    <ID name="DiagramaEjercicio2" mc="Standard.Package" uid="6be9afd6-e9b9-4292-ab8a-db6f1050ec07"/>
+    <PID name="Ontiveros_German_Jonatan_Fabian_35555898" mc="Standard.Project" uid="497f3b4c-f2ee-4447-8183-f3dd3e99bf04"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[DiagramaEjercicio2]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Estudiante" mc="Standard.Class" uid="1f8c34d8-7ea8-4620-9442-923a709ad9dc"/>
+        <COMPID name="Pieza" mc="Standard.Class" uid="f46809c3-c291-421c-99c2-af19ef1004c7"/>
+        <COMPID name="Tablero" mc="Standard.Class" uid="6d512e4b-eb41-48f7-a9d5-889ae199deab"/>
+        <COMPID name="Relog" mc="Standard.Class" uid="0b27d465-1162-4a29-a847-6ecc2bd214a7"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="DiagramaEjercicio2" mc="Standard.ClassDiagram" uid="7b4ab7d3-6dd0-4d1f-8b93-ad2edadf3d19"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
