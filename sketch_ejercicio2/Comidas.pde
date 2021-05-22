@@ -4,10 +4,10 @@ class Comidas{
   private ArrayList<Comida> comidas;
   private int cantidad;
   private int idColicion;
+  
   /*constructor*/
   public Comidas(){
     this.comida = new Comida();
-    //this.comida = new Comida(new PVector(random(1,width),random(1,height)),color(random(255),random(255),random(255)),20,20,1);
     this.comidas = new ArrayList<Comida>();
     //this.comidas.add(comida);
     this.cantidad = 6;
@@ -17,7 +17,7 @@ class Comidas{
   
   public void agregarComida(){
     for(int i=1; i < this.cantidad; i++){ 
-      this.comida = new Comida(i, new PVector(random(1,width),random(1,height)),color(random(255),random(255),random(255)),(int)random(30,40),(int)random(30,40),i);
+      this.comida = new Comida(i, new PVector(random(1,width),random(1,height)),color(random(255),random(255),random(255)), new PVector(40,40) ,i);
       this.comidas.add(this.comida);
       print("elementos agregados ",comida.resultado," - ");
     }

@@ -4,7 +4,6 @@ class Tablero{
   private String operacion;
   private float resultado;
   private boolean continuar;
-  private float [] resultados= {1,2,3,4,5};;//se usa para guardar los resultados generados
   
   public Tablero(){
     this.comidas = new Comidas();
@@ -33,11 +32,18 @@ class Tablero{
         tablero(); 
         print("tamanio ",serpientes.serpientes.size());
         serpientes.aumentarTamanio();
-      }else if(this.comidas.comidas.size() == 0){
-        fill(255);
-        textSize(15);
-        text("juego terminado", width/2, height/2);
-        stop();
+      }else{
+        if(this.comidas.comidas.size() == 0){
+          fill(255);
+          textSize(15);
+          text("juego terminado fruta", width/2, height/2);
+          stop();
+        }else{
+          fill(255);
+          textSize(15);
+          text("juego terminado fruta incorrecta", width/2, height/2);
+          stop();
+        } 
       }
     }
   }
