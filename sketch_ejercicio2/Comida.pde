@@ -4,8 +4,6 @@ class Comida{
   private PVector posicion;
   private PVector dimension;
   private color colorRectangulo;
-  private int ancho;
-  private int alto;
   private float resultado;
   private boolean bandera = false;
   
@@ -20,8 +18,6 @@ class Comida{
     this.posicion = posicion;
     this.dimension = dimension;
     this.colorRectangulo = colorRectangulo;
-    this.ancho = ancho;
-    this.alto = alto;
     this.resultado = _r;
   }
   

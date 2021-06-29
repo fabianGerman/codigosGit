@@ -1,9 +1,11 @@
 class Canion{
+  /*atributos*/
   private PVector posicion;
   private PVector velocidad;
   private PVector aceleracion;
   private float radio, velocidadMaxima;
   
+  /*constructor*/
   public Canion(float _x, float _y){
     this.posicion = new PVector();
     this.velocidad = new PVector();
@@ -13,6 +15,7 @@ class Canion{
     this.velocidadMaxima = 10;
   }
   
+  /*movimiennto de la bala de canion*/
   public void mover(){
     this.velocidad.add(this.aceleracion);
     this.velocidad.limit(this.velocidadMaxima);
@@ -20,10 +23,12 @@ class Canion{
     this.aceleracion.mult(0);
   }
   
+  /*este metodo curva la trayectoria de la vala del canion*/
   public void aplicarFuerza(PVector fuerza){
     this.aceleracion.add(fuerza);
   }
-  
+ 
+  /*dibuja la bala de canion*/
   public void dibujar(){
     stroke(0);
     strokeWeight(2);
@@ -33,11 +38,4 @@ class Canion{
     popMatrix();
   }
   
-  public void dibujar2(){
-    pushMatrix();
-    translate(posicion.x, posicion.y);
-    rotate(angulo);
-    rect(0,-5,50,10);
-    popMatrix();
-  }
 }

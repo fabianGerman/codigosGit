@@ -76,16 +76,16 @@ class Tablero{
     }
   }
   
-  void puntaje(){
+  public void puntaje(){
     stroke(179, 140, 198);
-  fill(255, 0 ,255);
-  //rect(90, 70, 160, 80);
-  fill(118, 22, 167);
-  textSize(17);
-  text( "Score: " + this.operacion, 70, 50);
-  
-  fill(118, 22, 167);
-  textSize(17);
-  text( "High Score: " + this.resultado, 70, 70);
+    fill(255, 0 ,255);
+    //rect(90, 70, 160, 80);
+    fill(118, 22, 167);
+    textSize(17);
+    text( "Operacion: " + this.operacion, 70, 50);
+    
+    fill(118, 22, 167);
+    textSize(17);
+    text( "Resultado: " + this.resultado, 70, 70);
   }
 }
