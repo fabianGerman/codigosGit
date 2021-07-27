@@ -1,0 +1,41 @@
+1-
+	#!/bin/bash
+	DATE=$(date +%Y-%m-%d-%H%M%S)
+	NOMBRE_ARCHIVO=init.d-$DATE.tar.gz
+	CARPETA_DESTINO=/tmp
+	CARPETA_RESPALDAR=/etc/init.d
+	tar -cpzf $CARPETA_DESTINO/$NOMBRE_ARCHIVO $CARPETA_RESPALDAR
+2-programar la ejecucion 1 vez al mes
+	sudo nano /etc/cron.monthly/backupMonthly.sh
+		/home/jeyson/backup.sh
+	sudo chmod u+x /etc/cron.monthly/backupMonthly.sh
+	--------------------------------------------
+	cp backup.sh /etc/cron.monthly
+
+3-
+	#!/bin/bash
+	echo "Espere 3 segundos:"
+	hora=$(date +%H:%M)
+	ping $1 -c 3 -W2 > /dev/null
+	if [ $? == 0 ]
+	then
+		echo $hora "Server" $1 "On-line" >> /tmp/testServer.dat
+	else
+		echo $hora "Server" $1 "Off-line" >> /tmp/testServer.dat
+	fi
+
+4-programar el script anterior que se ejecute cada hora
+
+	sudo testServer.dat /etc/cron.hourly
+
+5-programar el reinicio del sistema
+
+	30 05 * * 1-5 root shoutdown -r now
+
+6-mensaje
+	30 12 24 12 * root echo "feliz navidad" | wall
+
+7-
+	0 5 2 * * jeyson sudo apt clean
+
+8-	*/5 * * * * root du -bsh /var >> /var/log/espacioDisco.log

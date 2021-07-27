@@ -1,0 +1,55 @@
+1- #nano /etc/apt/sources.list
+2- basta con comentar las rutas (#)
+3-basta con comentar las rutas (#)
+4- #apt-get update
+5-
+ a-bsucar paquetes
+	 #apt-cache search nmap, mc, htop
+ b-mostrar informacion de paquetes
+	#apt-cache show nmap, ms, htop
+ c-mostrar dependencia
+	#apt-get cache depends nmap ---->su proposito es el de informar todas las dependencias del paquete nmap
+ d-instalar el paquete mc
+	#apt-get install mc
+ e-instalar el paquete nmap
+	#apt-get install nmap
+ f-eliminar el paquete mc
+	#apt-get remove mc
+ g-eliminar el paquete nmap
+	#apt.get remove nmap
+ g-limpiar cache
+	#apt-get clean
+
+6-desargar en /opt el paquete htop
+	#cd /opt
+	#apt-get download htop
+7-comando dpkg
+ a- mostrar informacion del paquete htop en /opt
+	#sudo dpkg -i htop_2.2.0-1++1_i386.deb
+	#sudo dpkg -s htop
+ b- mostrar version del paquete
+	#dpkg -l
+ c- mostrar la dependencia del paquete htop
+	# dpkg -f htop_2.2.0-1++1_i386.deb depends
+ d- instalar la dependencia del paquete htop
+8- descargar cmatrix con apt
+	#sudo apt-get cmatix
+9- instalar cmatrix en /opt
+	#sudo apt install cmatrix
+10-con el comando apt
+	a- apt-get source lynx
+	b- #sudo apt install kynx
+	c-
+11-moon-bubby
+	#tar -xzvf programa.tar.gz
+	#cd programa
+	#./configure
+	#make
+	#make install
+12-instalar xfce
+	#apt update
+	#apt install tasksel
+	#tasksel
+14-instalar mpg123
+	sudo apt install mpg123
+16-instalar moc

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Diagrama final" version="4">
+  <OBJECT>
+    <ID name="Diagrama final" mc="Standard.Project" uid="abec918c-a0c3-4e3f-a30c-35e10d4c0054"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[Diagrama final]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="diagrama final" mc="Standard.Package" uid="90a2ab7d-ba75-4c7f-832c-c7ed4391462e"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="Diagrama final" mc="Infrastructure.DiagramSet" uid="fd38fdc4-c6a7-4b30-9915-c8711beab8f3"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

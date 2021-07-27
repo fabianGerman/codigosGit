@@ -1,0 +1,123 @@
+		---- TP 3 ---- 
+1) Listar las unidades activas del tipo service.
+	#Systemctl list-units --type=service.
+2) Listar las unidades activas del tipo target. ¿Cuántas son?
+	#Systemctl list-units --type=target
+3) Listar las unidades activas del tipo device.
+	#Systemctl list-units --type=device.
+4) Listar las unidades disponibles del tipo service.
+	#Systemctl list-units --type=service –all.
+5) Listar las unidades inactivas del tipo service.
+	#Systemctl –type=service –a | grep inactive
+6) Realizar las siguientes operaciones utilizando el comando systemctl:
+* Mostrar las dependencias del servicio cron.service.
+	#Systemctl list-dependencies cron.service 
+* Mostrar las dependencias del target rescue.target.
+	#Systemctl list-dependencies rescue.target.
+* Mostrar el estado del servicio cron.service.
+	#Systemctl status cron.service
+* Mostrar el estado del target rescue.target.
+	#Sytemctl status rescue.target.
+* Mostrar información detallada (low-level) del servicio atd.service. ¿Despues de que unidades se tiene que iniciar?.
+	#systemctl show atd.service (After=systemd- journald.soket basic.target system.slice)
+*Mostrar información detallada (low-level) del target rescue.target. ¿Despues de que unidades se tiene que iniciar?.
+	#systemctl show atd.service (After=sysinit.target rescue.service)
+* ¿El servicio atd se encuentra en ejecución "running?. En caso afirmativo parar el mismo.
+	#Systemctl status atd. El servicio  se encuentra en ejecución. (Active: active(running)).
+#Systemctl stop atd.
+
+* ¿El servicio cron se encuentra en ejecución "running?. En caso afirmativo reiniciar el mismo.
+El servicio cron si se encuentra en ejecución. (Active: active(running))
+#Systemctl restart cron.
+* ¿El servicio cups se encuentra en ejecución "running?. En caso afirmativo recargar el mismo.
+El servicio cups se encuentra inactivo. #systemctl status cups.service (Active: inactive (dead)).
+* ¿Está habilitada, para iniciar en el arranque, la unidad bluetooth?.
+#systemctl status bluetooth.service. La unidad Bluetooth está activada en el arranque. (Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled))
+* ¿Está activa la unidad bluetooth?.
+#Systemctl status bluettoth.service. La unidad bluetooth no está activa. (Active: inactive (dead)).
+* ¿Está habilitada, para iniciar en el arranque, la unidad atd?.
+La unidad atd está habilitada para iniciar el arranque. #systemctl status atd.service (Loaded: loaded (/lib/systemd/system/atd.service; enabled)). 
+* ¿Está activa la unidad atd?.
+La unidad atd está inactiva. #systemctl status atd.service (Active: inactive (dead)).
+* Iniciar de nuevo el servicio atd.
+#Systemctl start atd
+* ¿Cuál es el estado del servicio atd?.
+ #systemctl status atd.service (Active: active (running))
+* Ejecutar el comando: root@carmina:~#systemctl reboot. ¿Qué ocurrio?.
+El comando anterior apago y  reinicio la máquina virtual.
+* Ejecutar el comando: root@carmina:~#systemctl poweroff. ¿Qué ocurrio?.
+El comando anterior apago la máquina virtual.
+7) Ejecutar el siguiente comando: root@carmina:~#systemctl stop lightdm
+¿Qué ocurrio?.
+El gestor de sesión deja de funcionar.
+8) Iniciar nuevamente el servicio lightdm.
+#Systemctl start lightdm.
+
+9) ¿Cuál es estado del servicio exim4?.
+#Systemctl status exim4. El estado del servicio es activo corriendo. (Active: active-running)
+10) Desactivar el inicio automático del servicio exim4.
+    #Systemctl disable exim4.
+11) Reiniciar el sistema y después verificar el estado del servicio exim4.
+#Systemctl kexec y #systemctl status exim4. Una vez reiniciado el Sistema el servicio exim4 figura como inactivo. (Active: inactive (dead)).
+12) Ejecutar el siguiente comando: root@carmina:~#systemctl isolate rescue.target ¿Qué ocurrió?.
+El comando anterior reinicio la maquina e Inicio el modo de rescate.
+13. Reiniciar el sistema.
+#Systemctl reboot .
+14. Mostrar el target de inicio por defecto.
+#systemctl get-default. El target por defecto es el graphical target.
+15. Ejecutar el siguiente comando: root@carmina:~#systemctl set-default rescue.target
+Reiniciar el sistema.
+¿Qué ocurrió?.
+Ejecutado el comando anterior se modificó el target de arranque.  Se creó un enlace simbólico al nuevo target predefinido, la consola en modo rescate.
+*Mostrar el target de inicio por defecto.
+#systemctl get-default (rescue.target).
+¿Cuántas unidades activas del tipo target se están ejecutando?.
+#systemctl list-units –type=target. Se están ejecutando 10 unidades de target.
+¿Por qué la cantidad de unidades target es menor a la del target anterior?.
+La cantidad de unidad es menor ya que el target no grafico requiere de menor cantidad de servicios para ejecutarse. Inicia con servicios esenciales para el funcionamiento del sistema para realizar mantenimiento o solucionar posibles problemas.
+
+16. Cambiar el target predeterminado para arranar por multi-user.target.
+# systemctl isolate multi-user.target. 
+17. Verificar si la configuración de hora, fecha y zona horaria son las correctas de su sistema.
+Con el comando #timedatectl se pudo visualizar que la hora, fecha y zona horaria del sistema son correctas.
+18. Mostrar los registros del sistema (logs).
+# journalctl .
+19. Mostrar los últimos 20 registros del sistema (logs).
+# journal –n20
+20. Mostrar los registros del sistema (logs) en tiempo real.
+#Journalctl -f
+21. Mostrar la lista de todos los boots realizados en el sistema.
+#journalctl –list-boots
+22. Mostrar los registros del boot actual.
+#journalctl -b
+23. Mostrar los registros del kernel.
+#journalctl -k
+24. Mostrar los registros del kernel del boot actual.
+#journalctl -k-b
+25. Mostrar los registros del servicio cron.service.
+#journalctl | grep cron.service	
+26. Mostrar los registros del servicio dbus.service.
+#journalctl | grep dbus.service
+27. Mostrar los registros de la unidad de almacenamiento.
+#journalctl /dev/sda
+28. Mostrar el espacio ocupado por los registros del sistema.
+#journalctl --disk-usage
+29. Apagar el sistema de 3 maneras diferentes.
+#Systemctl halt, #systemctl poweroff y #systemctl shutdown –h now.
+30. Reiniciar el sistema de 2 maneras diferentes.
+#Systemctl reboot o #systemctl kexec.
+31. Apagar el sistema dentro de 15 minutos.
+#shutdown –h +15.
+
+
+PARCIAL
+systemctl list-unit-files --types target --> muestra los q estan en el disco
+systemctl --type target --> reconocida activas por el sistema
+systemctl --type target -a --state inactive --> todas las unidades inactivas
+
+systemctl status cron ---> muestra estado de servicio cron
+
+-> Loaded: loaded --> si el servicio se levanta cuando se inicia el sistema.
+-> Active: active --> servicio se esta ejecutando. 
+
+

@@ -1,0 +1,236 @@
+1-listar unidades activas typo serivice
+
+	systemctl list-units --type=service
+
+2-listar unidades activos tipo target cantidad
+
+	systemctl list-units --type=target | wc -l
+
+3-listar unidades inactivas tipo servicio
+
+	systemcctl list-units --type=servie --state=inactive
+
+4-systemctl
+
+	a- mostrar dependencias del servicio cron.service
+
+		systemctl list-dependencies cron.service
+
+	b- mostrar dependencias del target rescue.target
+
+		systemctl list-dependencies rescue.target
+
+	c-mostrar estado de un servicio cron
+
+		systemctl status cron.service
+
+	d-cron se encuentra en ejecucion? reiniciarlo si es haci
+
+		systemctl status cron.service
+		systemctl restart cron.service
+
+	e-esta habilitada para iniciar en el arranque la unidad cron?
+
+		systemctl status cron.service
+		si esta habilitada
+
+	f-detener el servicio cron
+
+		systemctl stop cron.service
+
+	g-estado del servicio cron
+
+		systemctl status cron.service
+		el estado es inactivo
+
+	h-ejecutar el comando #systemctl reboot
+	
+		reinicia el sistema
+
+	i-ejecutar el comando #systemctl poweroff
+
+		apaga el sistema
+
+5- instalar paquete openssh-server
+
+	sudo apt install openssh-server --- el servicio es ssh.service
+	systemctl status ssh.service --- el estado es activo
+	systemctl stop ssh.service 
+	systemctl status ssh.service --- el servicio esta parado
+	systemctl reboot | systemctl status ssh.service --- el estado es activo
+
+6-cantidad de servicios activos
+
+	systemctl list-units | wc -l
+
+7-mostrar el target de inicio por defecto
+	systemctl get.default
+
+8-ejecutar #systemctl isolate rescue target
+
+	cambia a la modalidad de usuario unico
+	el servicio ssh esta inactivo
+	se encuentran activos 27 servicios -- systemctl list-units --type=service | wc -l
+	porque se desactivan todos los target graficos
+9-reiniciar sistema
+
+	exit o systemctl reboot
+
+10-el gestor de inicio por defecto es mate
+
+11-parar el servicio de gestro de inicio de sesion
+	
+	systemctl stop systemd-logind.service -- 
+
+12- iniciar el servicio de secion
+
+	systemctl start systemd-logind.service
+
+13-ejecutar #systemctl set-default multi-user.target
+	systemctl reboot
+	desabilito el entorno grafico
+	systemctl get-default -- multi-user.target
+	systemctl list.user | wc -l -- 0 target
+	porque se desabilitaron
+
+14-establecer el entorno grafico del sistema
+
+	systemctl set-default graphical.target
+
+15-verficar la configuracion de la hora
+
+	timedatectl status
+
+16-mostrar los registros del sistema logs
+
+	journalctl
+
+17-mostrar los ultimos 20 registros del sistema logs
+
+	journalctl -n20
+
+18-mostrar los registros del sistema log en tiempo real
+
+	journalctl -f
+
+19- mostrar la lista de todos los boots realizados en el sistema
+
+	journalctl --list-boots
+
+20- mostrar los registros del boot actual
+
+	journalctl -b -0
+
+21-mostrar los registors del kernel
+
+	journalctl -k
+
+22-mostrar los registrs del kernel del boot actual
+
+	journalctl -k -b -0
+
+23- mostrar los registros del servicio cron.service
+
+	journalctl -u cron.service
+
+24- mostrar los registros del servicio dbus.service
+
+	journalctl -u dbu.service
+
+25-mostrar los registros de la unidad de almacenamiento
+	
+	journalctl /dev/sda
+
+26-mostrar el espacio ocupado por el registro del sistema
+
+	journalctl --disk-usage
+
+27- instalar el paquete vsftpd
+	apt install vsftpd
+	systemctl list-units --type=service | grep vsftpd.* --- el servicio asociado es vsftpd.service
+	systemctl status vsftpd.service --- /lib/systemd/system/vstfpd.service
+	si esta en ejecucion
+
+28-script
+	#!/bin/bash
+	while [ true ]
+	do
+		fecha=$(date +%d/%m/%y-%H:%M:%S)
+		ping 4.2.2.2 -w 3 > /dev/null
+		if [ $? -eq 0 ]
+		then
+			echo $fecha " Acceso OK" >> /var/log/internet.log
+		else
+			echo $fecha " Sin Acceso" >> /var/log/internet.log
+		fi
+		sleep 3
+	done
+
+29-crear el servicio
+
+[Unit]
+Description=Servicio de gestión de acceso a internet
+After=network.target
+[Service]
+User=root
+ExecStart=/opt/internet.sh
+[Install]
+WantedBy=multi-user.target
+
+30-iniciar el servicio
+
+	#systemctl start internet.service
+
+31-verificar el servicio
+
+	#systemctl status internet.service
+
+32-activar el inicio automatico
+
+	#systemctl enable internet.service
+
+33-reiniciar y verificar el estado de servicio
+
+	systemctl reboot
+	sytemctl status internet.service
+
+34-craer script para verificar que root este conectado
+	#!/bin/bash
+	while [ true ]
+	do
+		DATE=$(DATE +%d/%m/%Y-%H%:%M:%S)
+		if ! [ $(id -u) = 0 ]; then
+			echo $DATE " - root desconectado" >> /var/log/rootAccess.log
+		else
+			echo $DATE " - root conectado" >> /var/log/rootAccess.log
+		fi
+		sleep 5
+	done
+
+35-crear el servicio 
+
+[Unit]
+Description=Servicio de gestión de acceso a internet
+After=network.target
+[Service]
+User=root
+ExecStart=/home/jeyson/verificarRoot
+[Install]
+WantedBy=multi-user.target
+
+36-iniciar el servicio
+
+	#systemctl start rootAccess.service
+
+37-verificar el estado
+
+	#systemctl stattus rootAccess.service
+
+38-logearse en una terminal de texto como root para verificar el funcionamiento
+
+	cat /var/log/rootAccess.log
+
+39-activar el servicio automatico 
+
+	systemctl enable rootAccess.service
+

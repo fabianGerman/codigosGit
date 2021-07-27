@@ -1,0 +1,64 @@
+1
+a- uptime
+b- cat /proc/version
+c- ls -ltr /var/log
+d- sudo tail -20 /var/log/kern.log
+e- free -m /var
+f- cat /proc/meminfo , cat /proc/swaps
+g- lsusb
+h- lspci
+
+2- cat /etc/os-release
+El archivo /etc/os-release  contiene datos de identificación del sistema operativo. El formato de archivo básico de os - release es una lista separada por saltos de línea de asignaciones de variables compatibles con shell similares al entorno.
+
+3- cat /proc/cpuinfo
+el archivo /proc/cpuinfo contiene informacion del procesador
+
+4-
+	#!/bin/bash
+	date
+	cat /etc/issue
+	ps | wc -l
+	free -m /
+	who
+
+5-
+	#!/bin/bash
+	DATE=$(date +%Y-%m-%d-%H%M%S)
+	NOMBRE_ARCHIVO=init.d-$DATE.tar.gz
+	CARPETA_DESTINO=/tmp
+	CARPETA_RESPALDAR=/etc/init.d
+	tar -cpzf $CARPETA_DESTINO/$NOMBRE_ARCHIVO $CARPETA_RESPALDAR
+
+6- dmidecode
+
+no puede ejecutar el comando porque tiene permiso denegado
+
+7- no se puede ejecutar
+
+8- nano /etc/sudoers -> jeyson ALL=/usr/sbin/dmidecode
+
+9- sudo -l
+
+10- si se puede ejecutar
+
+11- Cmd_Alias HD_ADMIN /sbin/fdisk, /sbin/cfdisk, /sbin/hdparm
+
+12- jeyson = HD_ADMIN
+
+13- sudo -l
+
+14- sudo cfdick --- si se pudo ejecutar
+
+15-
+	#!/bin/bash
+	clear
+	echo -n "Esta Seguro? s/n:"
+	read opcion
+	if [ $opcion == 's' ]; then
+		/sbin/shutdown -h now
+	fi
+16- ALL ALL=/home/jeyson/labo2/apagar.sh
+
+17- sudo ./apagar.sh ---si se puede
+

@@ -1,0 +1,119 @@
+1- listar usuario
+	cat /etc/passwd .... cut -d: -f1 /etc/passwd | sort
+
+2-agregar un usuario
+	#sudo adduser test
+
+3-agregar grupo
+	#sudo groupadd desktop
+
+4-agregar usuario
+	#sudo adduser --home /opt/users --shell /bin/sh --uid 1050 office
+	#id -g office
+
+5-agregar usuario especial modem --- preguntar
+	#sudo adduser --system --no-create-home --uid 140 --disabled-password --disable-login modem
+
+6-cambiar a test
+	su test
+
+7-cambiar contraseña
+	passwd
+
+8-id de usaurio y grupo ---preguntar 
+	id
+
+9-cerrar secion
+	exit
+
+10-ultima vez del usuario test logeado
+	sudo last test
+
+11-vencimiento del password test
+	#chage --list test
+
+12-configurar sistema --->incompleto
+
+13-configurar sistema --->incompleto
+
+14-sudo groupadd desarrolladores
+
+15-sudo groupadd analistas
+
+16-sudo groupadd usuarios
+
+17-agregar usuario
+	sudo adduser --ingroup desarrolladores jcruz
+	sudo adduser --ingroup desarrolladores moreno
+	sudo adduser --ingroup desarrolladores lara
+
+18-agregar usuario
+	sudo adduser --ingroup analistas jgallego
+	sudo adduser --ingroup analistas rperez
+
+19-agregar usuario
+	sudo adduser --ingroup usuarios mgronda
+	sudo adduser --ingroup usuarios mballazar
+	sudo adduser --ingroup usuarios lmattos
+20-agregar un usuario a varios grupos
+
+	sudo usermod -a -G desarrolladores,analistas,usuarios leader
+
+21-password caducado de leader
+	sudo chage --list leader
+
+22-logeado
+
+23-incompleto
+
+24-combiar contraseña
+	passwd leader
+
+25-cerrar secion
+	exit
+
+26-caducar cuanta de un grupo
+	sudo chage -list leader
+	sudo chage -list jcruz
+	sudo chage -list moreno
+	sudo chage -list lara
+
+27-bloquer un usuario
+	sudo usermod --lock jcruz
+
+28-eliminar usuario
+	sudo userdel jgallegos
+
+29-eliminar usuario y home
+	sudo userdel -rf mbaltazar
+
+30-eliminar grupo
+	sudo groupdel analistas
+
+31-cambiar home
+	sudo usermod -d /opt/test -m leader
+
+32-cmabiar shell
+	sudo usermod --shell /bin/sh test
+
+33-ver password caducado
+	sudo chage --list mgronda
+
+34- expirar cuenta y password de usuario
+ 	sudo chage -E 2021-12-31 -M 15 leader
+
+35- crear el usuario admin con privilegios de root
+	sudo adduser admin
+	#nano /etc/sudoers
+		admin ALL=(ALL:ALL) ALL
+36-conceder permisos a admin
+	#nano /etc/sudoers
+	admin ALL=/usr/sbin/shoutdown, /usr/sbin/fsck
+37-listar comandos ---  incompleto
+	sudo -l -U nombreUsuario
+38-crear el paquetes alias que englobe los comandos necesarios para questional los paquetes del sistema
+	Cmnd_Alias PAQUETES = /usr/bin/apt , /usr/bin/dpkg
+39-crear el alias usuarios que englobe a tester y jcruz
+	Cmnd_Alias USUARIOS = tester , jcruz
+40-conceder al alias usaurios los comandos definidos en alias paquetes
+	USUARIOS ALL=PAQUETES
