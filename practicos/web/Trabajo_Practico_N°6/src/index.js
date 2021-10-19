@@ -1,4 +1,5 @@
 import { Game } from "./scene/game.js";
+
 const config = {
     title: 'Juego Phaser',
     pixelArt: true, //remarca los pixeles de la imagen'
