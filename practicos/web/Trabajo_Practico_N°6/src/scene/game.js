@@ -13,7 +13,7 @@ export class Game extends Phaser.Scene{
         this.picksTop = null;
         this.picksBottom = null;
         this.picksSide = null;
-        this.contador = 0;
+        this.contador = 0;//se la utiliza como variable de tiempo
         this.isGravityInverted = false;
         this.isFlapMode = false;
         this.jumpCount = 0;
@@ -56,8 +56,8 @@ export class Game extends Phaser.Scene{
         this.plataformBottom.setScale(1.5,1);//modifica el alto y ancho de la plataforma de abajo
         
         //picas
-        this.picksTop = this.physics.add.group();
-        this.picksBottom = this.physics.add.group();
+        this.picksTop = this.physics.add.group(); //se crea el grupo de picas que iran en la parte de arriba
+        this.picksBottom = this.physics.add.group();//se crea el grupo de picas que iran en la parte de abajo
         //cursor
         this.cursors = this.input.keyboard.createCursorKeys();
         this.velocidad = 3;
@@ -79,12 +79,15 @@ export class Game extends Phaser.Scene{
         }
     }
 
-    mover(){//moviento del jugador
-        if(this.cursors.left.isDown){
+    /**
+     * movimiento del box controlado por el jugador
+     */
+    mover(){
+        if(this.cursors.left.isDown){//mueve a la izquierda
             this.box.setVelocityX(-300);
-        }else if(this.cursors.right.isDown){
+        }else if(this.cursors.right.isDown){//mueve a la derecha
             this.box.setVelocityX(300);
-        }else if(this.cursors.space.isDown){
+        }else if(this.cursors.space.isDown){//saltar
             this.box.setVelocityY(-300);
             this.rotate(180);
         }else{
@@ -97,14 +100,21 @@ export class Game extends Phaser.Scene{
         ball.disableBody(true,true);
     }
 
+    /**
+     * creata los picos de arriba y abajo
+     * cuando chocque con los pichos de arriba o abajo el juego se reinicia
+     */
     generarPicks(){
-        this.physics.add.collider(this.box,this.picksBottom,this.gameOver,null,this);
-        this.physics.add.collider(this.box,this.picksTop,this.gameOver,null,this);
+        this.physics.add.collider(this.box,this.picksBottom,this.resetGame,null,this);
+        this.physics.add.collider(this.box,this.picksTop,this.resetGame,null,this);
         this.generateTop();
         this.generateButtom();
     }
 
-    generateButtom(){//genera los picos de abajo
+    /**
+     * se crean las especificaciones de los picos de abajo
+     */
+    generateButtom(){
         if(this.contador % 500 == 0){
             this.picksBottom = this.physics.add.group({
                 key: ['spikeBottom'],
@@ -134,6 +144,9 @@ export class Game extends Phaser.Scene{
         }
     }
 
+    /**
+     * se crean las especificaciones de los picos de arriba
+     */
     generateTop(){//genera los picos de arriba
         if(this.contador % 2000 == 0){
             this.picksTop = this.physics.add.group({
@@ -164,42 +177,59 @@ export class Game extends Phaser.Scene{
         }
     }
 
-    generatePortal(){//creacion del portal
+    /**
+     * se crea los 3 portales 
+     */
+    generatePortal(){
         if(this.contador % 1400 == 0){
             this.portal = this.physics.add.sprite(750,460,'portalGravity').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
-            this.physics.add.overlap(this.box, this.portal, this.invertGravity,null,this);
+            this.physics.add.overlap(this.box, this.portal, this.invertirGravedad,null,this);
         }else if(this.contador % 2000 == 0){
             this.portal = this.physics.add.sprite(750,460,'portal').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
-            this.physics.add.overlap(this.box, this.portal, this.gravity,null,this);
+            this.physics.add.overlap(this.box, this.portal, this.restaurarGravedad,null,this);
         }else if(this.contador % 3000 == 0){
             this.portal = this.physics.add.sprite(750,460,'portalFlap').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
-            this.physics.add.overlap(this.box, this.portal, this.alterGravity,null,this);
+            this.physics.add.overlap(this.box, this.portal, this.alterarGravedad,null,this);
         }
     }
 
-    gravity(){
+    /**
+     * se restaura la gravedad y hace que el box valla sobre el suelo
+     */
+    restaurarGravedad(){
         this.box.setTexture('box');
         this.isGravityInverted = false;
         this.box.body.gravity.y = 4000;
         
     }
 
-    invertGravity(){
+    /**
+     * se inviete la gravedad y hace que el box valla sobre el techo
+     */
+    invertirGravedad(){
         this.box.setTexture('box');
         this.isGravityInverted = true;
         this.box.body.gravity.y = -4000;
     }
 
-    alterGravity(){
+    /**
+     * modifica la gravedad 
+     */
+    alterarGravedad(){
         this.isGravityInverted = false;
         this.isFlapMode = true;
-        this.box.setTexture('rocket');
+        this.box.setTexture('rocket');//cambia la imagen del box
         this.box.body.gravity.y = 2000;
     }
 
+    /**
+     * 
+     * permiete que el box rote de izquierda a derecha dependiendo
+     * si esta en el suelo o en el techo
+     */
     onAction(){
         if(this.isFlapMode){
             this.box.body.velocity.y = -600;
@@ -225,6 +255,9 @@ export class Game extends Phaser.Scene{
         this.jumpCount = 0;
     }
 
+    /**
+     * modificaciones  para que el box pueda rotar
+     */
     rotate(angleValue) {
         if (this.rotate){
         this.rotateAnim = this.tweens.add({
@@ -239,7 +272,10 @@ export class Game extends Phaser.Scene{
         }
       }
 
-      gameOver(){
+      /**
+       * reinicia el juego 
+       */
+      resetGame(){
           this.physics.pause();
           this.musica.pause();
           this.box.visible = false;
