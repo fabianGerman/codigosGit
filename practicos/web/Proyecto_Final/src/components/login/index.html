@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="loginStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="login">
+        <div class="row text-center login-page">
+            <div class="col-md-12 login-form">
+            <form action="claseDestino.php" method="post"> 			
+                <div class="row">
+                    <div class="col-md-12 login-form-header">
+                        <p class="login-form-font-header">Login<span>User</span><p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 login-from-row">
+                        <input name="usuario" type="text" placeholder="Usuario" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 login-from-row">
+                        <input name="password" type="password" placeholder="Contraseña" required/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 login-from-row">
+                        <button class="btn btn-info">Entrar</button>
+                        
+                    </div>
+                    <a href="../register/index.html">¿No estas registrado?</a>
+                </div>
+            </form>
+        </div>
+     </div>
+  </div>
+    <script src="../../../node_modules/ajax/lib/ajax.js"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    
+</body>
+</html>

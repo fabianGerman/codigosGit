@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="mainStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navigation">
+        <div class="header">
+            <h1>Menu de Inicio</h1>
+            <a href="http://tutorialzine.com/2016/11/freebie-3-elegant-bootstrap-forms/">Jugar</a>
+        </div>
+    
+        <div class="items">
+            <ul>
+                <li class="category">Options</li>
+                <li><a href="../login" class="active">Login</a></li>
+                <li><a href="../register">Registro</a></li>
+            </ul>
+        </div>
+    
+        <label for="template-select">Select a template:</label>
+        <select id="template-select">
+            <optgroup label="Footers">
+                <option selected data-href="../login">Registration Form</option>
+                <option data-href="../register">Advanced Search Form</option>
+            </optgroup>
+        </select>
+    
+    </div>
+       
+    <div class="main-content">
+       <iframe sandbox="allow-same-origin allow-scripts" src="Registration-form/index.html"></iframe>
+    </div>
+    <script src="../../../node_modules/ajax/lib/ajax.js"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
