@@ -1,4 +1,4 @@
-import { SecondScene } from "./SecondScene";
+
 export class Firstscene extends Phaser.Scene { 
     
     constructor(){
@@ -9,8 +9,6 @@ export class Firstscene extends Phaser.Scene {
         this.plataformDown = null;
         this.portal = null;
         this.contador = 0;
-
-        this.secondScene = new SecondScene(this);
     }
     //inicializa datos
     init(){
@@ -24,7 +22,6 @@ export class Firstscene extends Phaser.Scene {
         this.load.image('spikeBottom','./assets/img/spikeBottom.png');
         this.load.image('spikeSide', './assets/img/spikeSide.png');
         this.load.image('portal', './assets/img/portal.png');
-        this.secondScene.preload();
     }
     //instanciar los assets
     create(){
@@ -38,6 +35,8 @@ export class Firstscene extends Phaser.Scene {
         this.box.setVelocity(100,10);//asigna velocidad para los ejes x, y
         this.box.body.gravity.y = 4000;
 
+
+        
         //plataforma
         this.plataformUp = this.physics.add.sprite(0,0,'ground').setOrigin(0,0).setImmovable(true);//parte de arriba
         this.plataformDown = this.physics.add.sprite(0,600,'ground').setOrigin(0,1).setImmovable(true);//parte de abajo
@@ -53,8 +52,6 @@ export class Firstscene extends Phaser.Scene {
         this.picksBottom = this.physics.add.group();
         this.picksTop = this.physics.add.group();
 
-        //segunda escena
-        this.secondScene.create();
 
     }
     /**
@@ -62,7 +59,6 @@ export class Firstscene extends Phaser.Scene {
      * 
      */
     update(){
-        
         this.mover();
         this.contador++;
         this.generarPicks();
@@ -84,10 +80,12 @@ export class Firstscene extends Phaser.Scene {
             this.box.setVelocityX(-300);
         }else if(this.cursors.right.isDown){
             this.box.setVelocityX(300);
+            this.box.rotation(-10);
         }else if(this.cursors.space.isDown){
             this.box.setVelocityY(-500);
         }else{
             this.box.setVelocityX(0);//cuando se suelte la tecla presionada el objeto quedo fijo en el lugar
+            
         }
     }
 

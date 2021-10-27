@@ -1,6 +1,5 @@
 //importar la primera esecena
 import { Firstscene } from "./scenes/Firstscene.js";
-import { SecondScene } from "./scenes/SecondScene.js";
 const config = {
     title: 'Juego Phaser',
     pixelArt: true, //remarca los pixeles de la imagen'
@@ -21,7 +20,7 @@ const config = {
         },
     },
     //escenas del juego
-    scene: [Firstscene, SecondScene]
+    scene: [Firstscene]
 };
 
 //crea la instancia del juego

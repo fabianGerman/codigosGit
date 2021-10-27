@@ -72,8 +72,8 @@ export class Game extends Phaser.Scene{
         this.contador++;
         this.generarPicks();
         this.generatePortal();
-        this.picksTop.setVelocityX(-90);
-        this.picksBottom.setVelocityX(-98);
+        this.picksTop.setVelocityX(-100);
+        this.picksBottom.setVelocityX(-108);
         if(this.isFlapMode && this.input.activePointer.isDown){
             this.onAction();
         }
@@ -90,14 +90,14 @@ export class Game extends Phaser.Scene{
         }else if(this.cursors.space.isDown){//saltar
             this.box.setVelocityY(-300);
             this.rotate(180);
+            this.onAction();
+            if(this.isGravityInverted){
+                this.box.body.velocity.y = 500;
+                this.rotate(180);
+            }
         }else{
             this.box.setVelocityX(0);//cuando se suelte la tecla presionada el objeto quedo fijo en el lugar
         }
-    }
-
-
-    colisionarPicks(ball, picks){
-        ball.disableBody(true,true);
     }
 
     /**
@@ -115,7 +115,7 @@ export class Game extends Phaser.Scene{
      * se crean las especificaciones de los picos de abajo
      */
     generateButtom(){
-        if(this.contador % 500 == 0){
+        if(this.contador % 300 == 0){
             this.picksBottom = this.physics.add.group({
                 key: ['spikeBottom'],
                 frameQuantity: 1,
@@ -128,7 +128,7 @@ export class Game extends Phaser.Scene{
                     y: 450
                 }
             });
-        }else if(this.contador % 800 == 0){
+        }else if(this.contador % 500 == 0){
             this.picksBottom = this.physics.add.group({
                 key: ['spikeBottom'],
                 frameQuantity: 2,
@@ -148,7 +148,7 @@ export class Game extends Phaser.Scene{
      * se crean las especificaciones de los picos de arriba
      */
     generateTop(){//genera los picos de arriba
-        if(this.contador % 2000 == 0){
+        if(this.contador % 1000 == 0){
             this.picksTop = this.physics.add.group({
                 key: ['spikeTop'],
                 frameQuantity: 1,
@@ -161,7 +161,7 @@ export class Game extends Phaser.Scene{
                     y: 150
                 }
             });
-        }else if(this.contador % 2500 == 0){
+        }else if(this.contador % 1500 == 0){
             this.picksTop = this.physics.add.group({
                 key: ['spikeTop'],
                 frameQuantity: 2,
@@ -185,11 +185,11 @@ export class Game extends Phaser.Scene{
             this.portal = this.physics.add.sprite(750,460,'portalGravity').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
             this.physics.add.overlap(this.box, this.portal, this.invertirGravedad,null,this);
-        }else if(this.contador % 2000 == 0){
+        }else if(this.contador % 1700 == 0){
             this.portal = this.physics.add.sprite(750,460,'portal').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
             this.physics.add.overlap(this.box, this.portal, this.restaurarGravedad,null,this);
-        }else if(this.contador % 3000 == 0){
+        }else if(this.contador % 2000 == 0){
             this.portal = this.physics.add.sprite(750,460,'portalFlap').setOrigin(0,1);
             this.portal.body.velocity.x = -400;
             this.physics.add.overlap(this.box, this.portal, this.alterarGravedad,null,this);

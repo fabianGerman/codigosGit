@@ -12,7 +12,9 @@ class MainScene extends Phaser.Scene {
     preload() {
         this.load.image('box', './img/box.png');
         this.load.image('ground', './img/ground.png');
+        
     }
+
     create() {
         this.box = this.physics.add.sprite(300, 300, 'box');
         this.groundBottom = this.physics.add.sprite(0, 600,'ground')
@@ -34,7 +36,6 @@ class MainScene extends Phaser.Scene {
         if(this.box.body.touching.down || this.box.body.touching.up){
             this.jumpCount = 0;
         }
-
     }
 
     jump(){
