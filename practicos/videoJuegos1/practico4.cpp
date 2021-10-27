@@ -21,7 +21,7 @@ int main(){
 
 void menu(int opcion){
     cout<<"1: Obtener secuencia"<<endl;
-    cout<<"2: "
+    cout<<"2: ";
 }
 
 
@@ -43,9 +43,9 @@ void obtenerSecuencia(vector<int> &tvector, int numero){
         }
     }
 }
-
+ 
 void obtenerMayor(vector<int> tvector){
-    int mayor = tvector[0];;
+    int mayor = tvector[0];
     for (size_t i = 0; i < tvector.size(); i++)
     {
         if (mayor < tvector[i])
