@@ -1,6 +1,4 @@
-const e = require("express");
- 
-let estudiantes = [
+let students = [
     {
         apellido: "apellido1",
         nombre: "nombre1",
@@ -54,15 +52,4 @@ let estudiantes = [
 ];
 
 
-const buscar = (lu) => {
-    let studentFind = estudiantes.find(e => e.lu === lu);
-    return studentFind;
-}
-
-const mostrar = () =>{
-    return estudiantes;
-}
-
-module.exports = {
-    buscar, mostrar
-}
+module.exports = {students};
