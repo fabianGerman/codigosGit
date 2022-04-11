@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="diagrama_zelda" version="4">
+  <OBJECT>
+    <ID name="diagrama_zelda" mc="Standard.Package" uid="01bb77a3-0b53-49ab-87a7-8776fa10c0ba"/>
+    <PID name="Diagrama_Zelda" mc="Standard.Project" uid="6599a601-ceb8-44c3-9030-a494751f1917"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[diagrama_zelda]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Heroe" mc="Standard.Class" uid="20c0942d-e1f6-4fb3-b0ab-f0850d1a59ee"/>
+        <COMPID name="Enemigo" mc="Standard.Class" uid="4c973cd8-f499-4fb7-8baa-32dee60fb694"/>
+        <COMPID name="Flecha" mc="Standard.Class" uid="55b0d42a-c82b-47b9-828d-9e934e98913a"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="diagrama_Zelda" mc="Standard.ClassDiagram" uid="83b87e4a-4371-4ec5-92c4-01f2f9950ebc"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
